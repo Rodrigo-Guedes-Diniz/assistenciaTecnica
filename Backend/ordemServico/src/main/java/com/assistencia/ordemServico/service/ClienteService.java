@@ -25,7 +25,6 @@ public class ClienteService {
         novoCliente.setNome(dto.nome());
         novoCliente.setCPF(dto.CPF());
         novoCliente.setTelefone(dto.telefone());
-        novoCliente.setTelefone(dto.telefone());
         novoCliente.setEmail(dto.email());
 
         Cliente cliente = clienteRepository.save(novoCliente);
@@ -76,8 +75,7 @@ public class ClienteService {
     }
 
 
-    //
-
+    //Converter para cliente para ClienteResponseDTO
     private ClienteResponseDTO convertToResponseDTO(Cliente cliente) {
         return new ClienteResponseDTO(
                 cliente.getId(),

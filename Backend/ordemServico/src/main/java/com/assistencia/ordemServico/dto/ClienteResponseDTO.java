@@ -6,5 +6,4 @@ public record ClienteResponseDTO(
         String CPF,
         String telefone,
         String email
-) {
-}
+) { }

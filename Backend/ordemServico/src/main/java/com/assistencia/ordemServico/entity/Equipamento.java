@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_equipamento")
 @Data
@@ -25,10 +27,13 @@ public class Equipamento {
     @Column(name = "modelo")
     private String modelo;
 
-    @Column(name = "nomeroDeSerie")
+    @Column(name = "numeroDeSerie")
     private Long numeroDeSerie;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "equipamento", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdemServico> ordemServico;
 }

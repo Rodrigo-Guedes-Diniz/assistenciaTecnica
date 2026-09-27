@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_tecnico")
 @Data
@@ -14,16 +16,17 @@ public class Tecnico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "nome")
-    String nome;
+    private String nome;
 
     @Column(name = "especialidade")
-    String especialidade;
+    private String especialidade;
 
     @Column(name = "email")
-    String email;
+    private String email;
 
-
+    @OneToMany(mappedBy = "tecnico", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdemServico> ordemServico;
 }

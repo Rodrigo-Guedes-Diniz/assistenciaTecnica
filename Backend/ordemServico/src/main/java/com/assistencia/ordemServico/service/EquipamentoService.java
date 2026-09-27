@@ -66,7 +66,7 @@ public class EquipamentoService {
             throw new NoSuchElementException("Cliente nao encontrado com o ID " + clienteId);
         }
 
-        List<Equipamento> equipamentos = equipamentoRepository.encontrarPorCliente(clienteId);
+        List<Equipamento> equipamentos = equipamentoRepository.findByCliente(clienteId);
 
         return equipamentos.stream()
                 .map(this::convertToResponseDTO)
